@@ -24,5 +24,10 @@
     "express": "^4.17.1",
     "helmet": "^3.18.0",
     "nodemon": "^1.19.1"
+  },
+  "babel": {
+    "presets": [
+      "env"
+    ]
   }
 }

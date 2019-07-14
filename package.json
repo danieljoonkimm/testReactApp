@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "setup:rest-server": "cd rest-server && npm start",
+    "buildEnv": "node bin/buildEnv.js",
+    "build": "cd client && npm build"
   },
   "repository": {
     "type": "git",
