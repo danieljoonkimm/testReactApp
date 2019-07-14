@@ -20,9 +20,7 @@ const extractStyles = new MiniCssExtractPlugin({
 
 const envVariables = new webpack.DefinePlugin({
   'process.env': {
-    'NODE_ENV': JSON.stringify(process.env.NODE_ENV),
-    "apiSecretKey": JSON.stringify(process.env.apiSecretKey),
-    "apiURL": JSON.stringify(process.env.apiURL)
+    'NODE_ENV': JSON.stringify(process.env.NODE_ENV)
   }
 });
 
