@@ -1,4 +1,5 @@
 import React, {Component} from "react";
+import List from "./List/index.jsx";
 
 class App extends Component {
   constructor() {
@@ -7,7 +8,7 @@ class App extends Component {
   render() {
     return(
       <div>
-        hi
+        <List/>
       </div>
     )
   }
