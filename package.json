@@ -22,6 +22,7 @@
   "homepage": "https://github.com/danieljoonkimm/testReactApp#readme",
   "dependencies": {
     "babel-cli": "^6.26.0",
+    "bootstrap": "^4.3.1",
     "lodash": "^4.17.14"
   },
   "devDependencies": {
