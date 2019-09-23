@@ -54,13 +54,14 @@ class List extends Component {
               className={`col-xs-${12} col-sm-${columnNum /
                 options.columns} col-md-${columnNum /
                 options.columns} col-lg-${columnNum / options.columns}`}
+                key={index}
             >
               <img className="img-responsive" src={item.image} alt="" style={options.style}/>
             </div>
           );
         });
 
-        return <div className="row">{finalImages}</div>;
+        return <div className="row" style={{display: "flex"}}>{finalImages}</div>;
       }
     } else {
       let images = [];
@@ -80,6 +81,7 @@ class List extends Component {
               className={`col-xs-${12} col-sm-${columnNum /
                 options.columns} col-md-${columnNum /
                 options.columns} col-lg-${columnNum / options.columns}`}
+                key={index}
             >
               <img
                 className="img-responsive"
@@ -111,7 +113,7 @@ class List extends Component {
             "https://dummyimage.com/600x400/000/fff, https://dummyimage.com/600x400/000/fff, https://dummyimage.com/600x400/000/fff, https://dummyimage.com/600x400/000/fff, https://dummyimage.com/600x400/000/fff, https://dummyimage.com/600x400/000/fff, https://dummyimage.com/600x400/000/fff, https://dummyimage.com/600x400/000/fff",
           header: "Testing",
           subHeader: "testing",
-          style: {border: '1px solid red', marginBottom: '2em'}
+          style: {border: '2px solid red', marginBottom: '2em', padding: '1em'}
         })}
       </div>
     );
