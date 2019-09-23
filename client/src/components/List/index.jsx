@@ -48,19 +48,14 @@ class List extends Component {
             image: splitImageString[i]
           });
         }
-        let imagesAfterFirstRow = [];
         let grabImages = document.getElementsByClassName("img-responsive")
+        console.log(grabImages, 'hi')
         let finalImages = images.map( (item, index) => {
-          let cssStyles = {border: "red"}
-          if(index >= options.columns && grabImages) {
-            imagesAfterFirstRow.push(grabImages)
-            console.log(imagesAfterFirstRow, 'hi')
-          }
           return (
             <div
               className={`col-xs-${12} col-sm-${columnNum/options.columns} col-md-${columnNum/options.columns} col-lg-${columnNum/options.columns}`}
             >
-              <img className="img-responsive" src={item.image} alt=""/>
+              <img className="img-responsive" src={item.image} alt="" style={{marginBottom: '1em'}}/>
             </div>
           );
         });
@@ -72,8 +67,8 @@ class List extends Component {
 
   render() {
     return <div className="container">{this.joongrids({
-      columns: 2,
-      imageURLs: "https://dummyimage.com/600x400/000/fff, https://dummyimage.com/600x400/000/fff, https://dummyimage.com/600x400/000/fff, https://dummyimage.com/600x400/000/fff"
+      columns: 4,
+      imageURLs: "https://dummyimage.com/600x400/000/fff, https://dummyimage.com/600x400/000/fff, https://dummyimage.com/600x400/000/fff, https://dummyimage.com/600x400/000/fff, https://dummyimage.com/600x400/000/fff, https://dummyimage.com/600x400/000/fff, https://dummyimage.com/600x400/000/fff, https://dummyimage.com/600x400/000/fff"
     })}</div>;
   }
 }
