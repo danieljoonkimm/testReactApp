@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-// import joongrids from 'joongridstest';
+// import joongrids from "joongridstesting2";
 
 class List extends Component {
   constructor() {
@@ -12,22 +12,6 @@ class List extends Component {
     let header = options.header;
     let subHeader = options.subHeader;
     let columnNum = 12;
-
-    // let shadowImages = document.querySelectorAll(".img-responsive");
-    
-    // if(options.shadow_type === "hard") {
-    //   options.shadow_type = "0px"
-    // } else {
-    //   options.shadow_type = "35px"
-    // }
-
-    // shadowImages.forEach(image => {
-    //   image.style.boxShadow = `10px 10px ${options.shadow_type} 1px rgba(0,0,0,0,12)`;
-
-    //   if(options.padding) {
-    //     image.style.padding = '1em'
-    //   }
-    // })
     
     if (options.columns === undefined || options.imageURLs === undefined) {
       let images = [];
