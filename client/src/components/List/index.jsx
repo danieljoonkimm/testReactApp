@@ -6,12 +6,37 @@ class List extends Component {
     super();
   }
 
-  joongrids(options = { columns: undefined, imageURLs: undefined }) {
+  joongrids(
+    options = { header, subHeader, columns: undefined, imageURLs: undefined, style: undefined }
+  ) {
+    let header = options.header;
+    let subHeader = options.subHeader;
     let columnNum = 12;
+
+    // let shadowImages = document.querySelectorAll(".img-responsive");
+    
+    // if(options.shadow_type === "hard") {
+    //   options.shadow_type = "0px"
+    // } else {
+    //   options.shadow_type = "35px"
+    // }
+
+    // shadowImages.forEach(image => {
+    //   image.style.boxShadow = `10px 10px ${options.shadow_type} 1px rgba(0,0,0,0,12)`;
+
+    //   if(options.padding) {
+    //     image.style.padding = '1em'
+    //   }
+    // })
+    
     if (options.columns === undefined || options.imageURLs === undefined) {
       let images = [];
-      options.imageURLs = "https://dummyimage.com/600x400/000/fff, https://dummyimage.com/600x400/000/fff";
-      options.columns = columnNum/options.columns;
+      options.style = {
+        marginBottom: '1em'
+      }
+      options.imageURLs =
+        "https://dummyimage.com/600x400/000/fff, https://dummyimage.com/600x400/000/fff";
+      options.columns = columnNum / options.columns;
 
       let splitImageString = options.imageURLs.split(", ");
       let splitImageLength = splitImageString.length;
@@ -23,14 +48,14 @@ class List extends Component {
           });
         }
 
-        let finalImages = images.map( (item, index) => {
+        let finalImages = images.map((item, index) => {
           return (
             <div
-              className={`col-xs-${12} col-sm-${columnNum/options.columns} col-md-${
-                columnNum/options.columns
-              } col-lg-${columnNum/options.columns}`}
+              className={`col-xs-${12} col-sm-${columnNum /
+                options.columns} col-md-${columnNum /
+                options.columns} col-lg-${columnNum / options.columns}`}
             >
-              <img className="img-responsive" src={item.image} alt="" />
+              <img className="img-responsive" src={item.image} alt="" style={options.style}/>
             </div>
           );
         });
@@ -48,28 +73,48 @@ class List extends Component {
             image: splitImageString[i]
           });
         }
-        let grabImages = document.getElementsByClassName("img-responsive")
-        console.log(grabImages, 'hi')
-        let finalImages = images.map( (item, index) => {
+
+        let finalImages = images.map((item, index) => {
           return (
             <div
-              className={`col-xs-${12} col-sm-${columnNum/options.columns} col-md-${columnNum/options.columns} col-lg-${columnNum/options.columns}`}
+              className={`col-xs-${12} col-sm-${columnNum /
+                options.columns} col-md-${columnNum /
+                options.columns} col-lg-${columnNum / options.columns}`}
             >
-              <img className="img-responsive" src={item.image} alt="" style={{marginBottom: '1em'}}/>
+              <img
+                className="img-responsive"
+                src={item.image}
+                alt=""
+                style={options.style}
+              />
             </div>
           );
         });
 
-        return <div className="row">{finalImages}</div>;
+        return (
+          <div className="row">
+            <h1>{header}</h1>
+            <h3>{subHeader}</h3>
+            {finalImages}
+          </div>
+        );
       }
     }
   }
 
   render() {
-    return <div className="container">{this.joongrids({
-      columns: 4,
-      imageURLs: "https://dummyimage.com/600x400/000/fff, https://dummyimage.com/600x400/000/fff, https://dummyimage.com/600x400/000/fff, https://dummyimage.com/600x400/000/fff, https://dummyimage.com/600x400/000/fff, https://dummyimage.com/600x400/000/fff, https://dummyimage.com/600x400/000/fff, https://dummyimage.com/600x400/000/fff"
-    })}</div>;
+    return (
+      <div className="container">
+        {this.joongrids({
+          columns: 4,
+          imageURLs:
+            "https://dummyimage.com/600x400/000/fff, https://dummyimage.com/600x400/000/fff, https://dummyimage.com/600x400/000/fff, https://dummyimage.com/600x400/000/fff, https://dummyimage.com/600x400/000/fff, https://dummyimage.com/600x400/000/fff, https://dummyimage.com/600x400/000/fff, https://dummyimage.com/600x400/000/fff",
+          header: "Testing",
+          subHeader: "testing",
+          style: {border: '1px solid red', marginBottom: '2em'}
+        })}
+      </div>
+    );
   }
 }
 
