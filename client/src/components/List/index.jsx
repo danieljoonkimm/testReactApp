@@ -60,6 +60,7 @@ class List extends Component {
         }
 
         let finalImages = images.map((item, index) => {
+          console.log(item.image, 'what is this?')
           return (
             <div
               className={`col-xs-${12} col-sm-${columnNum /
